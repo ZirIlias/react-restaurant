@@ -1,11 +1,13 @@
 import Button from "../../ui/button/Button";
 
-const Restaurants = ( {restaurants} ) => {
+const RestaurantTabs = ( {restaurants} ) => {
     return <div style={{display: 'flex', justifyContent: 'center', gap: '10px'}}>
         {restaurants.map((restaurant) => (
-                <Button key={restaurant.id} value={restaurant.name} />
+            <Button key={restaurant.id}>
+                {restaurant.name}
+            </Button>
         ))}
     </div>;
 }
 
-export default Restaurants;
+export default RestaurantTabs;

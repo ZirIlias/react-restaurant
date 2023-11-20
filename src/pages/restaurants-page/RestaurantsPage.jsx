@@ -1,13 +1,13 @@
 import React from "react";
 import Restaurant from "../../components/restaurant/Restaurant";
-import Restaurants from "../../components/restaurants/Restaurants";
+import RestaurantTabs from "../../components/restaurantTabs/RestaurantTabs";
 
 const RestaurantsPage = ( {restaurants}) => {
 
 	const restaurantsMainInfo = restaurants.map( ({id, name}) => { return {id, name} });
 
 	return <div>
-		<Restaurants restaurants={restaurantsMainInfo} />
+		<RestaurantTabs restaurants={restaurantsMainInfo} />
 		
 		<hr /><hr />
 
