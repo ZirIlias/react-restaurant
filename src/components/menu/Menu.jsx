@@ -1,4 +1,4 @@
-import Dish from "../dish/Dish";
+import MenuItem from "../menuItem/MenuItem";
 
 const Menu = ( {menu}) => {
     return <>
@@ -6,7 +6,7 @@ const Menu = ( {menu}) => {
         <ul>
             {menu.map( ( dish ) => (
                 <li key={dish.id}>
-                    <Dish dish={dish}/>
+                    <MenuItem dish={dish}/>
                 </li>
             ))}
         </ul>
