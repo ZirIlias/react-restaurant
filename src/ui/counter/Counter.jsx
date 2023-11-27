@@ -1,13 +1,13 @@
 import Button from "../button/Button";
 
-const Counter = ( {onChange, value, minValue, maxValue } ) => {
+const Counter = ( {onChange, value = 0, minValue = 0, maxValue = 5, step = 1} ) => {
     function increment() {
-        const res = (value < maxValue) ? ++value : 
+        const res = (value < maxValue) ? value+step : 
         value;
         onChange(res);
     }
     function decrement() {
-        const res = (value > minValue) ? --value : 
+        const res = (value > minValue) ? value-step : 
         value;
         onChange(res);        
     }
@@ -18,6 +18,5 @@ const Counter = ( {onChange, value, minValue, maxValue } ) => {
         <Button onClick={increment}>+</Button>
     </div>
 }
-Counter.defaultProps = {minValue: 0, maxValue: 5, value: 0};
 
 export default Counter;

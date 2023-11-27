@@ -1,4 +1,8 @@
-const Dish = ( {dish: {name, price, ingredients}} ) => {
+const Dish = ( {dish} ) => {
+    if (!dish)
+        return;
+    
+    const {name, price, ingredients} = dish ?? {};
     return <>
         <strong>{ name }</strong> / <i>{price} $</i>
         <p>Ингредиенты:</p>
