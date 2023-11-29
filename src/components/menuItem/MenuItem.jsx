@@ -1,15 +1,15 @@
 import { useState } from "react";
 import Counter from "../../ui/counter/Counter";
 import Dish from "../dish/Dish";
+import styles from "./MenuItem.module.scss";
 
 const MenuItem = ( {dish} ) => {
 
     const [count, setCount] = useState(0);
-    return <>
+    return <div className={styles.menuItem}>
+        <Dish dish={dish} className={styles.dish}/>
         <Counter value={count} onChange={setCount} />
-        <br/>
-        <Dish dish={dish}/>
-    </>
+    </div>
 }
 
 export default MenuItem;
