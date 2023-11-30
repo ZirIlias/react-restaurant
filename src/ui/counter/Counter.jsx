@@ -1,15 +1,17 @@
-import {  useEffect } from "react";
-import { useCount } from "../../hooks/useCount";
 import Button from "../button/Button";
 import styles from "./Counter.module.scss";
 
 const Counter = ( {onChange, value = 0, minValue = 0, maxValue = 5, step = 1, labelText} ) => {
-
-    const {amount, increment, decrement} = useCount(value, minValue, maxValue, step);
-    
-    useEffect(() => {
-        onChange(amount);
-    }, [amount, onChange]);
+    function increment() {
+        const res = (value < maxValue) ? value+step : 
+        value;
+        onChange(res);
+    }
+    function decrement() {
+        const res = (value > minValue) ? value-step : 
+        value;
+        onChange(res);        
+    }
     
     return <div>
         {labelText && 

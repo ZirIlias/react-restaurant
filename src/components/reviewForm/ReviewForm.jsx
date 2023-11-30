@@ -1,4 +1,4 @@
-import { useCallback, useReducer } from "react";
+import { useReducer } from "react";
 import Counter from "../../ui/counter/Counter";
 import Input from "../../ui/input/Input";
 import Textarea from "../../ui/textarea/Textarea";
@@ -25,8 +25,6 @@ const reducer = (state, action) => {
 
 const ReviewForm = ()=> {
     const [formValue, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
-
-    const setRating = useCallback((count) => dispatch({type:"setRating", payload: count}),[]);
     
     return <div>
         <h3 className="title-h3">Оставить отзыв</h3>
@@ -35,7 +33,7 @@ const ReviewForm = ()=> {
             
             <Textarea labelText="Текст" name="text" value={formValue.text} onChange={(e) => dispatch({type: "setText", payload: e.target.value})} fixedSize/>
             
-            <Counter labelText="Рейтинг" value={formValue.rating} onChange={setRating} step={0.5} minValue={1}/>
+            <Counter labelText="Рейтинг" value={formValue.rating} onChange={(count) => dispatch({type:"setRating", payload: count})} step={0.5} minValue={1}/>
         </form>
     </div>
 }
