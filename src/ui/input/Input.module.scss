@@ -1,0 +1,18 @@
+@import "@styles/vars/colors.scss";
+
+.label {
+    display: block;
+    margin-bottom: 3px;
+    text-align: right;
+}
+
+.input {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid $papaya0whip;
+    padding: 5px;
+}
+
+.input[type="text"] {
+    height: 30px;
+}

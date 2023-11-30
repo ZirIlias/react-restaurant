@@ -1,0 +1,19 @@
+@import "@styles/vars/colors.scss";
+
+.label {
+    display: block;
+    margin-bottom: 3px;
+    text-align: right;
+}
+
+.textarea {
+    width: 100%;
+    min-height: 150px;
+    border-radius: 3px;
+    border: 1px solid $papaya0whip;
+    padding: 5px;
+}
+
+.textareaFixed {
+    resize: none;
+}

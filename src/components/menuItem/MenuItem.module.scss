@@ -1,0 +1,11 @@
+.menuItem {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 20px;
+    align-items: flex-start;
+}
+
+.dish {
+    width:100%;
+    max-width: 300px;
+}

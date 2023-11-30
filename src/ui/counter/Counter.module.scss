@@ -1,0 +1,14 @@
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.value {
+    font-size: 20px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 3px;
+}

@@ -1,5 +1,8 @@
 import { useReducer } from "react";
 import Counter from "../../ui/counter/Counter";
+import Input from "../../ui/input/Input";
+import Textarea from "../../ui/textarea/Textarea";
+import styles from "./ReviewForm.module.scss";
 
 const DEFAULT_FORM_VALUE = {
     name: '',
@@ -22,25 +25,15 @@ const reducer = (state, action) => {
 
 const ReviewForm = ()=> {
     const [formValue, dispatch] = useReducer(reducer, DEFAULT_FORM_VALUE);
-
+    
     return <div>
-        <h3>Оставить отзыв</h3>
-        <form onSubmit={(e)=>e.preventDefault()}>
-            <div>
-                <label htmlFor="name">Имя</label>
-                <br/>
-                <input name="name" id="name" type="text" value={formValue.name} onChange={(e) => dispatch({type: "setName", payload: e.target.value})}/>
-            </div>
-            <div>
-                <label htmlFor="text">Текст</label>
-                <br/>
-                <textarea name="text" id="text" value={formValue.text} onChange={(e) => dispatch({type: "setText", payload: e.target.value})}/>
-            </div>
-            <div>
-                <label htmlFor="name">Рейтинг </label>
-                <br/>
-                <Counter value={formValue.rating} onChange={(count) => dispatch({type:"setRating", payload: count})} step={0.5} minValue={1}/>
-            </div>
+        <h3 className="title-h3">Оставить отзыв</h3>
+        <form onSubmit={(e)=>e.preventDefault()} className={styles.form}>
+            <Input labelText="Имя" name="name" value={formValue.name} onChange={(e) => dispatch({type: "setName", payload: e.target.value})} />
+            
+            <Textarea labelText="Текст" name="text" value={formValue.text} onChange={(e) => dispatch({type: "setText", payload: e.target.value})} fixedSize/>
+            
+            <Counter labelText="Рейтинг" value={formValue.rating} onChange={(count) => dispatch({type:"setRating", payload: count})} step={0.5} minValue={1}/>
         </form>
     </div>
 }

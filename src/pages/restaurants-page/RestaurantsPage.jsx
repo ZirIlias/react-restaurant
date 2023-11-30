@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Restaurant from "../../components/restaurant/Restaurant";
 import RestaurantTabs from "../../components/restaurantTabs/RestaurantTabs";
+import styles from "./RestaurantsPages.module.scss"
 
 const RestaurantsPage = ( {restaurants}) => {
 
@@ -12,13 +13,13 @@ const RestaurantsPage = ( {restaurants}) => {
 	});
 	
 
-	return <div>
-		<RestaurantTabs restaurants={restaurantsMainInfo} onRestaurantSelect={setSelectedRestaurantId} />
-		
-		<hr /><hr />
-		
-		{selectedRestaurant && <Restaurant restaurant={selectedRestaurant}/>
-		}
+	return <div className={styles.page}>
+		<div className={"container"}>
+			<RestaurantTabs restaurants={restaurantsMainInfo} onRestaurantSelect={setSelectedRestaurantId} className={styles.tabs} selectedRestaurantId={selectedRestaurantId} />
+
+			{selectedRestaurant && <Restaurant restaurant={selectedRestaurant}/>
+			}
+		</div>
 	</div>;
 }
 
