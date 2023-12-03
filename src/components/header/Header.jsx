@@ -1,4 +1,4 @@
-import { useTheme } from "../../context/hooks";
+import { useTheme } from "../../context/ThemeContext/hooks";
 import Button from "../../ui/button/Button"
 import styles from './Header.module.scss'
 import classNames from "classnames";

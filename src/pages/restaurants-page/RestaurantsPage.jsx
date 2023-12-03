@@ -3,7 +3,7 @@ import Restaurant from "../../components/restaurant/Restaurant";
 import RestaurantTabs from "../../components/restaurantTabs/RestaurantTabs";
 import styles from "./RestaurantsPages.module.scss"
 import Layout from "../../layout/Layout";
-import { useTheme } from "../../context/hooks";
+import { useTheme } from "../../context/ThemeContext/hooks";
 
 const RestaurantsPage = ( {restaurants}) => {
 

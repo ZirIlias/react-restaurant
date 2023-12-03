@@ -1,15 +1,12 @@
-import { useState } from "react";
 import RestaurantsPage from "./pages/restaurants-page/RestaurantsPage"
-import { ThemeContext } from "./context/ThemeContext";
+import ThemeContextProvider from "./context/ThemeContext/ThemeCOntextProvider";
 
 const App = ( {restaurants} ) => {
 
-  const [theme, setTheme] = useState('light');
-  
   return (
-    <ThemeContext.Provider value={{theme, setTheme}}>
+    <ThemeContextProvider>
       <RestaurantsPage restaurants={restaurants} />
-    </ThemeContext.Provider>
+    </ThemeContextProvider>
   )
 }
 
