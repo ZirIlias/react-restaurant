@@ -2,6 +2,8 @@ import { useState } from "react";
 import Restaurant from "../../components/restaurant/Restaurant";
 import RestaurantTabs from "../../components/restaurantTabs/RestaurantTabs";
 import styles from "./RestaurantsPages.module.scss"
+import Layout from "../../layout/Layout";
+import { useTheme } from "../../context/hooks";
 
 const RestaurantsPage = ( {restaurants}) => {
 
@@ -11,16 +13,17 @@ const RestaurantsPage = ( {restaurants}) => {
 	const selectedRestaurant = restaurants.find( ({id}) => {
 		return selectedRestaurantId == id;
 	});
-	
 
-	return <div className={styles.page}>
+	const {theme} = useTheme();
+	
+	return <Layout className={styles.page}>
 		<div className={"container"}>
-			<RestaurantTabs restaurants={restaurantsMainInfo} onRestaurantSelect={setSelectedRestaurantId} className={styles.tabs} selectedRestaurantId={selectedRestaurantId} />
+			<RestaurantTabs restaurants={restaurantsMainInfo} onRestaurantSelect={setSelectedRestaurantId} className={styles.tabs} selectedRestaurantId={selectedRestaurantId} theme={theme} />
 
 			{selectedRestaurant && <Restaurant restaurant={selectedRestaurant}/>
 			}
 		</div>
-	</div>;
+	</Layout>;
 }
 
 export default RestaurantsPage;

@@ -1,8 +1,9 @@
 @import "./ui/ui.scss";
 @import "./nullify.scss";
 
-html, body {
+html, body, #root {
     margin: 0;
+    min-height: 100vh;
 }
 
 body {
