@@ -3,7 +3,6 @@ import Restaurant from "../../components/restaurant/Restaurant";
 import RestaurantTabs from "../../components/restaurantTabs/RestaurantTabs";
 import styles from "./RestaurantsPages.module.scss"
 import Layout from "../../layout/Layout";
-import { useTheme } from "../../context/ThemeContext/hooks";
 
 const RestaurantsPage = ( {restaurants}) => {
 
@@ -14,11 +13,10 @@ const RestaurantsPage = ( {restaurants}) => {
 		return selectedRestaurantId == id;
 	});
 
-	const {theme} = useTheme();
 	
 	return <Layout className={styles.page}>
 		<div className={"container"}>
-			<RestaurantTabs restaurants={restaurantsMainInfo} onRestaurantSelect={setSelectedRestaurantId} className={styles.tabs} selectedRestaurantId={selectedRestaurantId} theme={theme} />
+			<RestaurantTabs restaurants={restaurantsMainInfo} onRestaurantSelect={setSelectedRestaurantId} className={styles.tabs} selectedRestaurantId={selectedRestaurantId} />
 
 			{selectedRestaurant && <Restaurant restaurant={selectedRestaurant}/>
 			}
