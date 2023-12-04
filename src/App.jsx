@@ -1,8 +1,12 @@
 import RestaurantsPage from "./pages/restaurants-page/RestaurantsPage"
+import ThemeContextProvider from "./context/ThemeContext/ThemeCOntextProvider";
 
 const App = ( {restaurants} ) => {
+
   return (
-    <RestaurantsPage restaurants={restaurants} />
+    <ThemeContextProvider>
+      <RestaurantsPage restaurants={restaurants} />
+    </ThemeContextProvider>
   )
 }
 

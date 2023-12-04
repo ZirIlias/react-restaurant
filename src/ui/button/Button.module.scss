@@ -32,6 +32,18 @@ button {
     &.active {
         background-color: $buff;        
     }
+
+    &.dark {
+        background-color: $beige;
+        
+        &.active {
+            background-color: $papaya0whip;        
+        }
+
+        &:not(:disabled):hover {
+            background-color: #eda359;
+        }
+    }
 }
 
 .rectangle {
