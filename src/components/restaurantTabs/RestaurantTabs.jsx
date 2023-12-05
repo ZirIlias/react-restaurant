@@ -1,18 +1,16 @@
-import Button from "../../ui/button/Button";
 import styles from "./RestaurantTabs.module.scss";
 import classNames from "classnames";
-import buttonStyles from "../../ui/button/Button.module.scss";
-import { useTheme } from "../../context/ThemeContext/hooks";
+import { useSelector } from "react-redux";
+import { selectRestaurantIds } from "../../store/features/entities/restaurant/selectors";
+import RestaurantTab from "../restaurantTab/RestaurantTab";
 
-const RestaurantTabs = ( {restaurants, onRestaurantSelect, className, selectedRestaurantId} ) => {
+const RestaurantTabs = ( {onRestaurantSelect, className, selectedRestaurantId} ) => {
 
-    const {theme} = useTheme();
+    const restaurantIds = useSelector( selectRestaurantIds );
 
     return <div className={ classNames( styles.tabsList, className) }>
-        {restaurants.map((restaurant) => (
-            <Button key={restaurant.id} onClick={ () => onRestaurantSelect(restaurant.id) } active={ restaurant.id === selectedRestaurantId} className={buttonStyles[theme]}>
-                {restaurant.name}
-            </Button>
+        {restaurantIds.map((restaurantId) => (
+            <RestaurantTab key={restaurantId} id={restaurantId} onClick={ () => onRestaurantSelect(restaurantId) } active={ restaurantId === selectedRestaurantId} ></RestaurantTab>
         ))}
     </div>;
 }

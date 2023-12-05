@@ -3,12 +3,12 @@ import ThemeContextProvider from "./context/ThemeContext/ThemeCOntextProvider";
 import { Provider } from "react-redux";
 import store from "./store/store";
 
-const App = ( {restaurants} ) => {
+const App = () => {
 
   return (
     <Provider store={store}>
       <ThemeContextProvider>
-        <RestaurantsPage restaurants={restaurants} />
+        <RestaurantsPage />
       </ThemeContextProvider>
     </Provider>
   )

@@ -3,13 +3,21 @@ import Menu from "../menu/Menu";
 import ReviewForm from "../reviewForm/ReviewForm";
 import Reviews from "../reviews/Reviews";
 import styles from "./Restaurant.module.scss";
+import { useSelector } from "react-redux";
+import { selectRestaurantById } from "../../store/features/entities/restaurant/selectors";
 
-const Restaurant = ( { restaurant: {name, menu, reviews} } ) => {
+const Restaurant = ( { id } ) => {
+
+   const restaurant = useSelector( (state) =>  selectRestaurantById(state, id) );
+
+   if (!restaurant)
+      return null;
+
 	return <div>
-       <h2 className={classNames("title-h1", styles.title)}>{ name }</h2>
-       <Menu menu={menu} className={styles.section}/>
+       <h2 className={classNames("title-h1", styles.title)}>{ restaurant.name }</h2>
+       <Menu restaurantId={id} className={styles.section}/>
        <div className={ classNames(styles.section, styles.reviewsSection )}>
-          <Reviews reviews={reviews}/>
+          <Reviews restaurantId={id}/>
           <ReviewForm/>
         </div>
      </div>

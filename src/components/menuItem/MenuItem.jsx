@@ -3,11 +3,11 @@ import Counter from "../../ui/counter/Counter";
 import Dish from "../dish/Dish";
 import styles from "./MenuItem.module.scss";
 
-const MenuItem = ( {dish} ) => {
+const MenuItem = ( {id} ) => {
 
     const [count, setCount] = useState(0);
     return <div className={styles.menuItem}>
-        <Dish dish={dish} className={styles.dish}/>
+        <Dish id={id} className={styles.dish}/>
         <Counter value={count} onChange={setCount} />
     </div>
 }
