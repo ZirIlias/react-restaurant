@@ -1,13 +1,17 @@
+import { useSelector } from "react-redux";
 import Ul from "../../ui/ul/Ul";
 import Review from "../review/Review";
+import { selectRestaurantReviewIds } from "../../store/features/entities/restaurant/selectors";
 
-const Reviews = ( {reviews} ) => {
+const Reviews = ( {restaurantId} ) => {
+    const reviewIds = useSelector( state => selectRestaurantReviewIds( state, restaurantId) );
+
     return <div>
         <h3 className={"title-h3"}>Отзывы</h3>
         <Ul>
-            {reviews.map( (review) => (
-                <li key={review.id}>
-                    <Review review={review}/>
+            {reviewIds.map( (reviewId) => (
+                <li key={reviewId}>
+                    <Review id={reviewId}/>
                 </li>
             ))}
         </Ul>
