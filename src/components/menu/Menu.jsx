@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import Ul from "../../ui/ul/Ul";
 import MenuItem from "../menuItem/MenuItem";
 import styles from "./Menu.module.scss";
-import { selectRestaurantMenuIds } from "../../store/features/entities/restaurant/selectors";
+import { selectRestaurantMenuIds } from "../../store/entities/restaurant/selectors";
 
 const Menu = ( {restaurantId, className}) => {
 

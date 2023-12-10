@@ -1,10 +1,17 @@
 import classNames from "classnames";
 import styles from "./Dish.module.scss";
-import { useSelector } from "react-redux";
-import { selectDishById } from "../../store/features/entities/dish/selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { selectDishById } from "../../store/entities/dish/selectors";
+import { useEffect } from "react";
+import { getDishById } from "../../store/entities/dish/thunks/get-dish-by-id";
 
 const Dish = ( {id, className} ) => {
     const dish = useSelector( state => selectDishById(state, id) );
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch( getDishById( id ) );
+    },[id, dispatch]);
 
     if (!dish)
         return null;

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Restaurant from "../../components/restaurant/Restaurant";
-import RestaurantTabs from "../../components/restaurantTabs/RestaurantTabs";
 import styles from "./RestaurantsPages.module.scss"
 import Layout from "../../layout/Layout";
+import RestaurantTabsContainer from "../../components/restaurantTabs/container";
 
 const RestaurantsPage = () => {
 
@@ -10,7 +10,7 @@ const RestaurantsPage = () => {
 	
 	return <Layout className={styles.page}>
 		<div className={"container"}>
-			<RestaurantTabs onRestaurantSelect={setSelectedRestaurantId} className={styles.tabs} selectedRestaurantId={selectedRestaurantId} />
+			<RestaurantTabsContainer onTabClick={setSelectedRestaurantId} className={styles.tabs} selectedRestaurantId={selectedRestaurantId} />
 
 			{selectedRestaurantId && <Restaurant id={selectedRestaurantId}/>
 			}
