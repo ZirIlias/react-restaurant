@@ -1,10 +1,7 @@
 import classNames from "classnames";
 import styles from "./Dish.module.scss";
-import { useSelector } from "react-redux";
-import { selectDishById } from "../../store/entities/dish/selectors";
 
-const Dish = ( {id, className} ) => {
-    const dish = useSelector( state => selectDishById(state, id) );
+const Dish = ( {dish, className} ) => {
 
     if (!dish)
         return null;

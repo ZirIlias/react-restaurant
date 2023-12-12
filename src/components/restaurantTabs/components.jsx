@@ -1,12 +1,14 @@
-import RestaurantTabContainer from "../restaurantTab/container";
+import RestaurantTab from "../restaurantTab/component";
 import styles from "./RestaurantTabs.module.scss";
 import classNames from "classnames";
 
-const RestaurantTabs = ( { restaurantIds, onTabClick, className, selectedRestaurantId} ) => {
+const RestaurantTabs = ( { restaurants, onTabClick, className, selectedRestaurantId} ) => {
 
     return <div className={ classNames( styles.tabsList, className) }>
-        {restaurantIds.map((restaurantId) => (
-            <RestaurantTabContainer key={restaurantId} restaurantId={restaurantId} onTabClick={ () => onTabClick(restaurantId) } active={ restaurantId === selectedRestaurantId} ></RestaurantTabContainer>
+        {restaurants.map((restaurant) => (
+            <RestaurantTab key={restaurant.id} onTabClick={ () => onTabClick(restaurant.id) } active={ restaurant.id === selectedRestaurantId} >
+                {restaurant?.name}
+            </RestaurantTab>
         ))}
     </div>;
 }

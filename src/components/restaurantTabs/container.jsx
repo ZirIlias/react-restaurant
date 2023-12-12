@@ -1,19 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
-import { selectRestaurantIds } from "../../store/entities/restaurant/selectors";
 import RestaurantTabs from "./components";
-import { getRestaurants } from "../../store/entities/restaurant/thunks/get-restaurants";
-import { useEffect } from "react";
+import { useGetRestaurantsQuery } from "../../services/api";
 
 const RestaurantTabsContainer = ( {onTabClick, ...props} ) => {
 
-    const restaurantIds = useSelector( selectRestaurantIds );
-    const dispatch = useDispatch();
+    const { data, isFetching } = useGetRestaurantsQuery();
 
-    useEffect( () => {
-        dispatch(getRestaurants());
-    }, [dispatch])
+    if ( isFetching )
+        return null;
 
-    return <RestaurantTabs onTabClick={onTabClick} restaurantIds={restaurantIds} {...props}/>
+    return <RestaurantTabs onTabClick={onTabClick} restaurants={ data } {...props}/>
 }
 
 export default RestaurantTabsContainer;
