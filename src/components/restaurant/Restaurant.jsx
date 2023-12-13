@@ -14,7 +14,7 @@ const Restaurant = ( { restaurant } ) => {
        <MenuContainer restaurantId={restaurant.id} className={styles.section}/>
        <div className={ classNames(styles.section, styles.reviewsSection )}>
           <ReviewsContainer restaurantId={restaurant.id}/>
-          <ReviewForm/>
+          <ReviewForm restaurantId={restaurant.id}/>
         </div>
      </div>
 }

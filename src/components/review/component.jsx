@@ -8,7 +8,7 @@ const Review = ( {review, user} ) => {
         return null;
 
     return <div>
-        <p><strong>{user.name}</strong> / <span className={styles.rating}><i>{rating} star</i></span></p>
+        <p><strong>{user?.name}</strong> / <span className={styles.rating}><i>{rating} star</i></span></p>
         <p>{text}</p>
     </div>
 }

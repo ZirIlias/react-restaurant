@@ -3,6 +3,7 @@ import { apiUrl } from "../constants/api-config";
 
 export const api = createApi({
     reducerPath: 'api',
+    tagTypes: ["Review"],
     baseQuery: fetchBaseQuery({ 
         baseUrl: apiUrl
     }),
@@ -22,14 +23,30 @@ export const api = createApi({
         query: (restaurantId) => ({
           url: "reviews",
           params: { restaurantId },
-        })
+        }),
+        providesTags: (result, _, restaurantId) => 
+          result
+            .map(({ id }) => ({ type: "Review", id }))
+            .concat(
+              { type: "Review", id: restaurantId }
+            )
       }),
       getUsers: builder.query({
         query: () => ({
           url: "users/"
         })
+      }),      
+      createReview: builder.mutation({
+        query: ({ restaurantId, newReview }) => ({
+          url: `review/${restaurantId}`,
+          method: "POST",
+          body: newReview,
+        }),
+        invalidatesTags: (result, _, { restaurantId }) => [
+          { type: "Review", id: restaurantId },
+        ]
       }),
     }),
 })
 
-export const { useGetDishesQuery, useGetRestaurantsQuery, useGetReviewsQuery, useGetUsersQuery } =  api;
+export const { useGetDishesQuery, useGetRestaurantsQuery, useGetReviewsQuery, useGetUsersQuery, useCreateReviewMutation } =  api;
