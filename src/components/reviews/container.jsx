@@ -2,9 +2,9 @@ import { useGetReviewsQuery } from "../../services/api";
 import Reviews from "./component";
 
 const ReviewsContainer = ( {restaurantId} ) => {
-    const { data, isFetching } = useGetReviewsQuery(restaurantId);
+    const { data, isLoading } = useGetReviewsQuery(restaurantId);
 
-    if (isFetching)
+    if (isLoading)
         return null;
 
     return <Reviews reviews={data} />
