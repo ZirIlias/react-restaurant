@@ -3,9 +3,9 @@ import { restaurantSlice } from "./entities/restaurant";
 import { dishSlice } from "./entities/dish";
 import { reviewSlice } from "./entities/review";
 import { userSlice } from "./entities/user";
-import { api } from "../services/api";
+import { api } from "./services/api";
 
-const store = configureStore({
+const store = configureStore({    
     reducer: {
         restaurant: restaurantSlice.reducer,
         dish: dishSlice.reducer,

@@ -1,4 +1,4 @@
-import { useGetUsersQuery } from "../../services/api";
+import { useGetUsersQuery } from "../../store/services/api";
 import Review from "./component";
 
 const ReviewContainer = ( {review} ) => {

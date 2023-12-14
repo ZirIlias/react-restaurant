@@ -1,4 +1,4 @@
-import { useGetReviewsQuery } from "../../services/api";
+import { useGetReviewsQuery } from "../../store/services/api";
 import Reviews from "./component";
 
 const ReviewsContainer = ( {restaurantId} ) => {

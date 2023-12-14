@@ -2,8 +2,8 @@ import { useState } from "react";
 import Restaurant from "../../components/restaurant/Restaurant";
 import styles from "./RestaurantsPages.module.scss"
 import Layout from "../../layout/Layout";
-import { useGetRestaurantsQuery } from "../../services/api";
 import RestaurantTabs from "../../components/restaurantTabs/components";
+import { useGetRestaurantsQuery } from "../../store/services/api";
 
 const RestaurantsPage = () => {
 

@@ -1,4 +1,4 @@
-import { useGetDishesQuery } from "../../services/api";
+import { useGetDishesQuery } from "../../store/services/api";
 import Menu from "./component";
 
 const MenuContainer = ( {restaurantId, className}) => {

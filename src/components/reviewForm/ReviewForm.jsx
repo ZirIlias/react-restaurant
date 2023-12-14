@@ -3,7 +3,7 @@ import Counter from "../../ui/counter/Counter";
 import Input from "../../ui/input/Input";
 import Textarea from "../../ui/textarea/Textarea";
 import styles from "./ReviewForm.module.scss";
-import { useCreateReviewMutation, useEditReviewMutation, useGetUsersQuery } from "../../services/api";
+import { useCreateReviewMutation, useEditReviewMutation, useGetUsersQuery } from "../../store/services/api";
 import Button from "../../ui/button/Button";
 
 const DEFAULT_FORM_VALUE = {
