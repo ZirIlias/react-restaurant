@@ -2,17 +2,22 @@ import { useState } from "react";
 import Restaurant from "../../components/restaurant/Restaurant";
 import styles from "./RestaurantsPages.module.scss"
 import Layout from "../../layout/Layout";
-import RestaurantTabsContainer from "../../components/restaurantTabs/container";
+import RestaurantTabs from "../../components/restaurantTabs/components";
+import { useGetRestaurantsQuery } from "../../store/services/api";
 
 const RestaurantsPage = () => {
 
 	const [selectedRestaurantId, setSelectedRestaurantId] = useState();
+	const { data: restaurants, isFetching: isRestaurantsFetching } = useGetRestaurantsQuery();
 	
+    if ( isRestaurantsFetching )
+        return null;
+
 	return <Layout className={styles.page}>
 		<div className={"container"}>
-			<RestaurantTabsContainer onTabClick={setSelectedRestaurantId} className={styles.tabs} selectedRestaurantId={selectedRestaurantId} />
+			<RestaurantTabs onTabClick={setSelectedRestaurantId} restaurants={ restaurants } selectedRestaurantId={selectedRestaurantId} className={styles.tabs} />
 
-			{selectedRestaurantId && <Restaurant id={selectedRestaurantId}/>
+			{selectedRestaurantId && <Restaurant restaurant={ restaurants.find( ({id}) => id == selectedRestaurantId) } />
 			}
 		</div>
 	</Layout>;
