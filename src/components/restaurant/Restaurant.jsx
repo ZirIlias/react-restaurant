@@ -3,12 +3,19 @@ import Menu from "../menu/Menu";
 import ReviewForm from "../reviewForm/ReviewForm";
 import Reviews from "../reviews/Reviews";
 import styles from "./Restaurant.module.scss";
-import { useSelector } from "react-redux";
-import { selectRestaurantById } from "../../store/features/entities/restaurant/selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { selectRestaurantById } from "../../store/entities/restaurant/selectors";
+import { useEffect } from "react";
+import { getReviewsByRestaurantId } from "../../store/entities/review/thunks/get-reviews-by-restaurant-id";
 
 const Restaurant = ( { id } ) => {
 
    const restaurant = useSelector( (state) =>  selectRestaurantById(state, id) );
+
+   const dispatch = useDispatch();
+   useEffect( () => {
+      dispatch( getReviewsByRestaurantId(id) );
+   }, [id, dispatch]);
 
    if (!restaurant)
       return null;
