@@ -1,0 +1,29 @@
+@import "@styles/vars/colors.scss";
+
+.title {
+    margin-bottom: 30px;
+    text-align: center;
+    color: $buff;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.section {
+    border: 1px solid $beige;
+    border-radius: 3px;
+    padding: 10px;
+    
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+
+.reviewsSection {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-gap: 30px;
+}

@@ -5,7 +5,7 @@ const ReviewsContainer = ( {restaurantId} ) => {
     const { data, isLoading } = useGetReviewsQuery(restaurantId);
 
     if (isLoading)
-        return null;
+        return 'Reviews loading';
 
     return <Reviews reviews={data} />
 }

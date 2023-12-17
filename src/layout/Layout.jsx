@@ -8,7 +8,9 @@ const Layout = function( {children, className}) {
     <div className={ classNames( className) }>
         <Header></Header>
         <div className={styles.body}>
-          {children}
+          <div className={"container"}>
+            {children}
+          </div>
         </div>
         <Footer></Footer>
     </div>
