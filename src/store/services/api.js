@@ -18,6 +18,11 @@ export const api = createApi({
         query: () => ({
           url: "restaurants/",
         })
+      }),    
+      getRestaurant: builder.query({
+        query: (restaurantId) => ({
+          url: `restaurant/${restaurantId}`,
+        })
       }),
       getReviews: builder.query({
         query: (restaurantId) => ({
@@ -59,4 +64,4 @@ export const api = createApi({
     }),
 })
 
-export const { useGetDishesQuery, useGetRestaurantsQuery, useGetReviewsQuery, useGetUsersQuery, useCreateReviewMutation, useEditReviewMutation } =  api;
+export const { useGetDishesQuery, useGetRestaurantsQuery, useGetRestaurantQuery, useGetReviewsQuery, useGetUsersQuery, useCreateReviewMutation, useEditReviewMutation } =  api;
