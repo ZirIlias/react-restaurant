@@ -2,7 +2,7 @@ import RestaurantsPage from "./pages/restaurants-page/component"
 import ThemeContextProvider from "./context/ThemeContext/ThemeCOntextProvider";
 import { Provider } from "react-redux";
 import store from "./store/store";
-import { BrowserRouter, Route, Routes } from "react-router-dom/dist";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom/dist";
 import { MainPage } from "./pages/main-page/component";
 import { NotFoundPage } from "./pages/not-found-page/component";
 import { RestaurantPage } from "./pages/restaurant-page/component";
@@ -23,6 +23,7 @@ const App = () => {
               <Route path="restaurants" element={<RestaurantsPage/>}>
                 <Route path=":restaurantId" element={<RestaurantPage/>}>                
                   {/* <Route index element={<RestaurantContainer/>} /> */}
+                  <Route index element={<Navigate to="menu" replace/>} />
                   <Route path="menu" element={<MenuContainer/>} />
                   <Route path="reviews" element={<RestaurantReviewsSectionContainer/>} />
                 </Route>
